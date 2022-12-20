@@ -13,7 +13,7 @@ const p = {
   paper100: '#aeaeae',
   paper300: '#767577',
   paper900: '#202020',
-  paperTransparent: 'rgba(52, 52, 52, 0.5)',
+  paperTransparent: 'rgba(52, 52, 52, 0.7)',
 };
 
 const theme = createTheme({
@@ -40,10 +40,10 @@ const theme = createTheme({
 
     $primary: p.blue,
     $background: p.white,
-    $logoBackground: p.white,
     $foreground: p.white,
-    $courseBackground: p.paper10,
+    $characterBackground: p.paper20,
     $transparentBackground: p.paperTransparent,
+    $white: p.white,
   },
   borderRadii: {
     xs: 4,
@@ -62,8 +62,12 @@ const theme = createTheme({
     },
     title: {
       color: 'black',
-      fontSize: 20,
+      fontSize: 14,
       fontWeight: '600',
+    },
+    subtitle: {
+      color: 'black',
+      fontSize: 12,
     },
   },
 });

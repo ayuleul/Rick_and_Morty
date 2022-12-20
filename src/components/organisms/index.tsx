@@ -1,1 +1,1 @@
-export {default as CharacterCard} from './characterCard';
+export {default as CharacterItem} from './characterItem';

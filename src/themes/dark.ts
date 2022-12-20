@@ -13,8 +13,8 @@ export const theme: Theme = createTheme({
     ...light.colors,
     $primary: p.blue70,
     $background: p.slate10,
-    $logoBackground: p.slate10,
     $foreground: p.slate10,
+    $characterBackground: p.slate10,
   },
   statusBar: {
     barStyle: 'light-content' as StatusBarStyle,
