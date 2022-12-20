@@ -1,4 +1,5 @@
-import {SafeAreaView} from '@app/components/atoms';
+import {Box, MaterialIcons, SafeAreaView} from '@app/components/atoms';
+import {GoBack} from '@app/components/molecules';
 import {CharacterList} from '@app/components/templates';
 import {useGetCharactersQuery} from '@app/redux/service';
 import {RootState} from '@app/redux/store';
@@ -11,6 +12,14 @@ const Characters = () => {
   const {character} = useSelector((state: RootState) => state);
   return (
     <SafeAreaView flex={1}>
+      <Box
+        marginHorizontal="xl"
+        marginVertical="sm"
+        flexDirection="row"
+        justifyContent="space-between">
+        <GoBack />
+        <MaterialIcons name="filter-list" size={30} color="$primary" />
+      </Box>
       <CharacterList data={character} />
     </SafeAreaView>
   );

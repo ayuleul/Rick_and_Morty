@@ -11,7 +11,6 @@ export const theme: Theme = createTheme({
   ...light,
   colors: {
     ...light.colors,
-    $primary: p.blue70,
     $background: p.slate10,
     $foreground: p.slate10,
     $characterBackground: p.slate10,

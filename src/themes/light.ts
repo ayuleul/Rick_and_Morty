@@ -5,7 +5,7 @@ const p = {
   white: 'white',
   black: 'black',
   red: 'red',
-  blue: 'blue',
+  blue: '#05445E',
   yellow: 'yellow',
   paper00: '#ffffff',
   paper10: '#f5f5f4',

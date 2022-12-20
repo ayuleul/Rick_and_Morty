@@ -3,7 +3,7 @@ import {ICharacter} from '@character';
 import {API_URL} from '@env';
 
 export const characterApi = createApi({
-  reducerPath: 'pokemonApi',
+  reducerPath: 'characterApi',
   baseQuery: fetchBaseQuery({baseUrl: `${API_URL}/character`}),
   endpoints: builder => ({
     getCharacters: builder.query<ICharacter, string>({

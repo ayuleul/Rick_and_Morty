@@ -1,4 +1,4 @@
-import {Characters} from '@app/screens';
+import {Characters, Locations} from '@app/screens';
 import React from 'react';
 import {ThemeProvider} from '@shopify/restyle';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -17,6 +17,7 @@ function AppNavigation() {
         screenOptions={{
           headerShown: false,
         }}>
+        <Stack.Screen name={routes.locations} component={Locations} />
         <Stack.Screen name={routes.characters} component={Characters} />
       </Stack.Navigator>
     </ThemeProvider>

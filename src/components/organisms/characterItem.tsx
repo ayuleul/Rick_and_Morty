@@ -42,7 +42,7 @@ const CharacterCard: React.FC<ICharacterItemProp> = ({item}) => {
           {item.status}
         </Text>
         <Text variant="subtitle" mt="xs">
-          {item.origin.name}
+          Location: {item.origin.name}
         </Text>
       </Box>
     </Box>
