@@ -26,7 +26,7 @@ const LocationCard: React.FC<ICharacterItemProp> = ({
       paddingHorizontal="md"
       paddingVertical="lg"
       marginVertical="sm">
-      <Box>
+      <Box width={windowWidth * 0.75}>
         <Text fontWeight="bold" mb="md">{`${item?.name} (${item?.type})`}</Text>
         <Text mb="sm">Dimension: {item?.dimension}</Text>
         <Text variant="title" fontWeight="400">

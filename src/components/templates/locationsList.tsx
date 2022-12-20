@@ -1,11 +1,12 @@
 import React from 'react';
-import {FlatList} from 'react-native';
+import {FlatList, RefreshControl} from 'react-native';
 import {LocationItem} from '@app/components/organisms';
 import {Box} from '@app/components/atoms';
 import {ILocation, IResult} from '@location';
 
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {LoadMore} from '../molecules';
 
 type ParamList = {
   Characters: {locationId: number} | undefined;
@@ -13,9 +14,21 @@ type ParamList = {
 
 interface ICharacterListProp {
   data: ILocation;
+  onEndReached: () => void;
+  isFetching: boolean;
+  isEnd: boolean;
+  refreshing: boolean;
+  handleOnRefresh: () => void;
 }
 
-const LocationList: React.FC<ICharacterListProp> = ({data}) => {
+const LocationList: React.FC<ICharacterListProp> = ({
+  data,
+  onEndReached,
+  isFetching,
+  isEnd,
+  refreshing,
+  handleOnRefresh,
+}) => {
   const navigation = useNavigation<NativeStackNavigationProp<ParamList>>();
 
   function handleNavigation(id: number) {
@@ -33,6 +46,13 @@ const LocationList: React.FC<ICharacterListProp> = ({data}) => {
         renderItem={renderItem}
         keyExtractor={(item: IResult) => item.id.toString()}
         showsVerticalScrollIndicator={false}
+        onEndReached={onEndReached}
+        ListFooterComponent={() => (
+          <LoadMore isFetching={isFetching} isEnd={isEnd} />
+        )}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={handleOnRefresh} />
+        }
       />
     </Box>
   );

@@ -5,16 +5,21 @@ import {locationApi} from '../service';
 const locationSlice = createSlice({
   name: 'location',
   initialState: {info: null, results: []} as unknown as ILocation,
-  reducers: {},
+  reducers: {
+    clearLocationResultsData: state => {
+      state.results = [];
+    },
+  },
   extraReducers: builder => {
     builder.addMatcher(
       locationApi.endpoints.getLocations.matchFulfilled,
       (state, {payload}) => {
         state.info = payload.info;
-        state.results = payload.results;
+        state.results = [...state.results, ...payload.results];
       },
     );
   },
 });
+export const {clearLocationResultsData} = locationSlice.actions;
 
 export default locationSlice.reducer;

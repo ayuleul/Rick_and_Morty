@@ -6,8 +6,8 @@ export const characterApi = createApi({
   reducerPath: 'characterApi',
   baseQuery: fetchBaseQuery({baseUrl: `${API_URL}/character`}),
   endpoints: builder => ({
-    getCharacters: builder.query<ICharacter, string>({
-      query: () => '',
+    getCharacters: builder.query<ICharacter, number>({
+      query: page => `?page=${page}`,
     }),
   }),
 });

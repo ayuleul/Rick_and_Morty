@@ -6,8 +6,8 @@ export const locationApi = createApi({
   reducerPath: 'locationApi',
   baseQuery: fetchBaseQuery({baseUrl: `${API_URL}/location`}),
   endpoints: builder => ({
-    getLocations: builder.query<ILocation, string>({
-      query: () => '',
+    getLocations: builder.query<ILocation, number>({
+      query: page => `?page=${page}`,
     }),
   }),
 });
