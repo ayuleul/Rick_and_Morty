@@ -1,7 +1,7 @@
 import {ISpecies} from '@character';
 
 const getSpeciesIcon = (status: ISpecies) => {
-  if (status === 'Alien') {
+  if (status === 'Human') {
     return '☺️';
   } else {
     return '👽';

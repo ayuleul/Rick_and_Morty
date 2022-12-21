@@ -1,4 +1,11 @@
 declare module '@character' {
+  export interface ICharacterFilter {
+    page: number;
+    name: string;
+    status: IStatus | string;
+    gender: IGender | string;
+    species: ISpecies | string;
+  }
   export interface IInfo {
     count: number;
     pages: number;

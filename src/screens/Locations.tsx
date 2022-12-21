@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {SafeAreaView} from '@app/components/atoms';
-import LocationList from '@app/components/templates/locationsList';
+import {LocationList} from '@app/components/templates';
 import {useGetLocationsQuery} from '@app/redux/service/locationApi';
 import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '@app/redux/store';
