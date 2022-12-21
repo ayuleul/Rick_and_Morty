@@ -1,28 +1,36 @@
 import React from 'react';
-import {Pressable, Text} from '../atoms';
+import {Text} from '../atoms';
+import {PressableProps} from '../atoms/pressable';
+import {TextProps} from '../atoms/text';
+import Touchable from './touchable';
 
 interface IButton {
   title: string;
-  id: string;
-  isSelected: boolean;
-  handleOnPress: (id: string, value: string) => void;
+  handleOnPress: () => void;
+  containerStyle?: PressableProps;
+  titleStyle?: TextProps;
 }
 
 const Button: React.FC<IButton> = ({
   title,
-  id,
-  isSelected = false,
   handleOnPress,
+  containerStyle,
+  titleStyle,
 }) => {
   return (
-    <Pressable
-      onPress={() => handleOnPress(id, title)}
-      p="sm"
-      m="sm"
+    <Touchable
+      onPress={handleOnPress}
+      // width={80}
+      bg="$primary"
       borderRadius="xs"
-      bg={isSelected ? '$primary' : '$white'}>
-      <Text color={!isSelected ? '$primary' : '$white'}>{title}</Text>
-    </Pressable>
+      paddingVertical="sm"
+      justifyContent="center"
+      alignItems="center"
+      {...containerStyle}>
+      <Text color="$white" {...titleStyle}>
+        {title}
+      </Text>
+    </Touchable>
   );
 };
 

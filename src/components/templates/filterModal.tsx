@@ -1,8 +1,8 @@
 import {windowWidth} from '@app/helpers';
 import {ICharacterFilter} from '@character';
 import React, {useCallback} from 'react';
-import {Box, Modal, Pressable, Text} from '../atoms';
-import {Touchable} from '../molecules';
+import {Box, Modal, Pressable} from '../atoms';
+import {Button} from '../molecules';
 import {ButtonGroup} from '../organisms';
 
 interface IFilterModal {
@@ -87,28 +87,19 @@ const FilterModal: React.FC<IFilterModal> = ({
             id="species"
             handleOnPress={handleOnPress}
           />
-
           <Box flexDirection="row" justifyContent="space-around" mt="lg">
-            <Touchable
-              onPress={handleClearFilter}
-              width={110}
-              bg="$primary"
-              paddingVertical="sm"
-              borderRadius="xs"
-              justifyContent="center"
-              alignItems="center">
-              <Text color="$white">Clear</Text>
-            </Touchable>
-            <Touchable
-              onPress={handleApplyFilter}
-              width={110}
-              bg="$primary"
-              borderRadius="xs"
-              paddingVertical="sm"
-              justifyContent="center"
-              alignItems="center">
-              <Text color="$white">Apply Filter</Text>
-            </Touchable>
+            <Button
+              title="Clear"
+              handleOnPress={handleClearFilter}
+              // eslint-disable-next-line react-native/no-inline-styles
+              containerStyle={{width: 80}}
+            />
+            <Button
+              title="Done"
+              handleOnPress={handleApplyFilter}
+              // eslint-disable-next-line react-native/no-inline-styles
+              containerStyle={{width: 80}}
+            />
           </Box>
         </Box>
       </Box>

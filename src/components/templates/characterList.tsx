@@ -3,7 +3,7 @@ import React from 'react';
 import {FlatList, RefreshControl} from 'react-native';
 import {CharacterItem} from '@app/components/organisms';
 import {Box} from '@app/components/atoms';
-import {LoadMore} from '../molecules';
+import {Empty, LoadMore} from '../molecules';
 
 interface ICharacterListProp {
   data: ICharacter;
@@ -31,8 +31,17 @@ const CharacterList: React.FC<ICharacterListProp> = ({
         numColumns={2}
         showsVerticalScrollIndicator={false}
         onEndReached={onEndReached}
+        ListEmptyComponent={() => (
+          <>
+            {data?.results?.length === 0 ? <Empty name="Character!" /> : null}
+          </>
+        )}
         ListFooterComponent={() => (
-          <LoadMore isFetching={isFetching} isEnd={isEnd} />
+          <>
+            {data?.results?.length !== 0 ? (
+              <LoadMore isFetching={isFetching} isEnd={isEnd} />
+            ) : null}
+          </>
         )}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={handleOnRefresh} />

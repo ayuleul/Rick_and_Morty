@@ -27,10 +27,20 @@ const ButtonGroup: React.FC<IButtonGroup> = ({
           return (
             <Button
               key={item}
-              id={id}
-              handleOnPress={handleOnPress}
+              handleOnPress={() => handleOnPress(id, item)}
               title={item}
-              isSelected={selected === item}
+              // eslint-disable-next-line react-native/no-inline-styles
+              containerStyle={{
+                m: 'sm',
+                p: 'sm',
+                bg: '$white',
+                borderColor: '$primary',
+                borderWidth: selected === item ? 1 : 0,
+              }}
+              // eslint-disable-next-line react-native/no-inline-styles
+              titleStyle={{
+                color: '$primary',
+              }}
             />
           );
         })}

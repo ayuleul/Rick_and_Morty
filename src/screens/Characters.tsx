@@ -3,11 +3,12 @@ import {
   MaterialIcons,
   Pressable,
   SafeAreaView,
+  TextInput,
 } from '@app/components/atoms';
 import {GoBack} from '@app/components/molecules';
 import {CharacterList, FilterModal} from '@app/components/templates';
 import {clearCharacterResultsData} from '@app/redux/features';
-import {useGetCharactersQuery} from '@app/redux/service';
+import {useGetCharactersMutation} from '@app/redux/service';
 import {RootState} from '@app/redux/store';
 import {ICharacterFilter} from '@character';
 import React, {useCallback, useEffect, useState} from 'react';
@@ -27,13 +28,13 @@ const Characters = () => {
 
   const [refreshing, setRefreshing] = useState(false);
 
-  const {refetch, isFetching} = useGetCharactersQuery({page, ...filterValue});
+  const [fetchData, {isLoading}] = useGetCharactersMutation();
 
   const {character} = useSelector((state: RootState) => state);
   const dispatch = useDispatch();
 
   function handlePageIncrease() {
-    if (isFetching || page === character?.info?.pages) {
+    if (isLoading || page === character?.info?.pages) {
       return;
     }
     setPage(pre => pre + 1);
@@ -42,7 +43,11 @@ const Characters = () => {
   const handleOnRefresh = useCallback(() => {
     dispatch(clearCharacterResultsData());
     setRefreshing(true);
-    refetch();
+    handleClearFilter();
+    fetchData({
+      page,
+      ...filterValue,
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -54,25 +59,46 @@ const Characters = () => {
     setFilterValue({name: '', status: '', gender: '', species: ''});
   }, []);
 
-  const handleApplyFilter = useCallback(() => {
-    dispatch(clearCharacterResultsData());
-    setRefreshing(true);
-    refetch();
-    setModalVisible(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  const handleSearchValueChange = useCallback((value: string) => {
+    setFilterValue(pre => ({...pre, name: value}));
   }, []);
 
+  const handleApplyFilter = () => {
+    dispatch(clearCharacterResultsData());
+    fetchData({
+      page,
+      ...filterValue,
+    });
+    setModalVisible(false);
+  };
+
   useEffect(() => {
-    refetch();
+    fetchData({
+      page,
+      ...filterValue,
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page]);
 
   useEffect(() => {
-    if (isFetching) {
+    if (isLoading) {
       return;
     }
     setRefreshing(false);
-  }, [isFetching]);
+  }, [isLoading]);
+
+  useEffect(() => {
+    if (filterValue?.name?.length < 3 || isLoading) {
+      return;
+    }
+    dispatch(clearCharacterResultsData());
+    setRefreshing(true);
+    fetchData({
+      page,
+      ...filterValue,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filterValue?.name]);
 
   return (
     <SafeAreaView flex={1}>
@@ -82,6 +108,15 @@ const Characters = () => {
         flexDirection="row"
         justifyContent="space-between">
         <GoBack />
+        <TextInput
+          value={filterValue.name}
+          onChangeText={handleSearchValueChange}
+          bg="$characterBackground"
+          flex={1}
+          marginHorizontal="md"
+          height={35}
+          paddingHorizontal="sm"
+        />
         <Pressable onPress={handleOpenModal}>
           <MaterialIcons name="filter-list" size={30} color="$primary" />
         </Pressable>
@@ -89,7 +124,7 @@ const Characters = () => {
       <CharacterList
         data={character}
         onEndReached={handlePageIncrease}
-        isFetching={isFetching}
+        isFetching={isLoading}
         isEnd={page === character?.info?.pages}
         refreshing={refreshing}
         handleOnRefresh={handleOnRefresh}

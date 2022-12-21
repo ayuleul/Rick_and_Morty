@@ -6,7 +6,7 @@ import {ILocation, IResult} from '@location';
 
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {LoadMore} from '../molecules';
+import {Empty, LoadMore} from '../molecules';
 
 type ParamList = {
   Characters: {locationId: number} | undefined;
@@ -47,8 +47,15 @@ const LocationList: React.FC<ICharacterListProp> = ({
         keyExtractor={(item: IResult) => item.id.toString()}
         showsVerticalScrollIndicator={false}
         onEndReached={onEndReached}
+        ListEmptyComponent={() => (
+          <>{data?.results?.length === 0 ? <Empty name="Location!" /> : null}</>
+        )}
         ListFooterComponent={() => (
-          <LoadMore isFetching={isFetching} isEnd={isEnd} />
+          <>
+            {data?.results?.length !== 0 ? (
+              <LoadMore isFetching={isFetching} isEnd={isEnd} />
+            ) : null}
+          </>
         )}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={handleOnRefresh} />
