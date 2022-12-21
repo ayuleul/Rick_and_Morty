@@ -69,8 +69,10 @@ const Characters = ({route}: NavProps) => {
 
   const handleApplyFilter = () => {
     dispatch(clearCharacterResultsData());
+    setPage(1);
+    setRefreshing(true);
     fetchData({
-      page,
+      page: 1,
       ...filterValue,
     });
     setModalVisible(false);
@@ -89,6 +91,7 @@ const Characters = ({route}: NavProps) => {
       return;
     }
     dispatch(clearCharacterResultsData());
+    setPage(1);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isFocused]);
 
@@ -104,9 +107,10 @@ const Characters = ({route}: NavProps) => {
       return;
     }
     dispatch(clearCharacterResultsData());
+    setPage(1);
     setRefreshing(true);
     fetchData({
-      page,
+      page: 1,
       ...filterValue,
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps

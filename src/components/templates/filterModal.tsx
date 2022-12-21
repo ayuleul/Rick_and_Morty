@@ -95,7 +95,7 @@ const FilterModal: React.FC<IFilterModal> = ({
               containerStyle={{width: 80}}
             />
             <Button
-              title="Done"
+              title="Apply"
               handleOnPress={handleApplyFilter}
               // eslint-disable-next-line react-native/no-inline-styles
               containerStyle={{width: 80}}
