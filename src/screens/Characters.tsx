@@ -11,10 +11,12 @@ import {clearCharacterResultsData} from '@app/redux/features';
 import {useGetCharactersMutation} from '@app/redux/service';
 import {RootState} from '@app/redux/store';
 import {ICharacterFilter} from '@character';
+import {useIsFocused} from '@react-navigation/native';
 import React, {useCallback, useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 
-const Characters = () => {
+const Characters = ({route}: NavProps) => {
+  const locationName = route?.params?.locationName;
   const [page, setPage] = useState(1);
   const [modalVisible, setModalVisible] = useState(false);
   const [filterValue, setFilterValue] = useState<
@@ -32,6 +34,8 @@ const Characters = () => {
 
   const {character} = useSelector((state: RootState) => state);
   const dispatch = useDispatch();
+
+  const isFocused = useIsFocused();
 
   function handlePageIncrease() {
     if (isLoading || page === character?.info?.pages) {
@@ -81,6 +85,14 @@ const Characters = () => {
   }, [page]);
 
   useEffect(() => {
+    if (!isFocused) {
+      return;
+    }
+    dispatch(clearCharacterResultsData());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isFocused]);
+
+  useEffect(() => {
     if (isLoading) {
       return;
     }
@@ -122,7 +134,9 @@ const Characters = () => {
         </Pressable>
       </Box>
       <CharacterList
-        data={character}
+        data={character?.results.filter(
+          item => item?.location?.name === locationName,
+        )}
         onEndReached={handlePageIncrease}
         isFetching={isLoading}
         isEnd={page === character?.info?.pages}

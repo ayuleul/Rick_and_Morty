@@ -1,4 +1,4 @@
-import {ICharacter, IResult} from '@character';
+import {IResult} from '@character';
 import React from 'react';
 import {FlatList, RefreshControl} from 'react-native';
 import {CharacterItem} from '@app/components/organisms';
@@ -6,7 +6,7 @@ import {Box} from '@app/components/atoms';
 import {Empty, LoadMore} from '../molecules';
 
 interface ICharacterListProp {
-  data: ICharacter;
+  data: IResult[];
   onEndReached: () => void;
   isFetching: boolean;
   isEnd: boolean;
@@ -25,20 +25,18 @@ const CharacterList: React.FC<ICharacterListProp> = ({
   return (
     <Box flex={1} alignItems="center">
       <FlatList
-        data={data?.results}
+        data={data}
         renderItem={CharacterItem}
         keyExtractor={(item: IResult) => item.id.toString()}
         numColumns={2}
         showsVerticalScrollIndicator={false}
         onEndReached={onEndReached}
         ListEmptyComponent={() => (
-          <>
-            {data?.results?.length === 0 ? <Empty name="Character!" /> : null}
-          </>
+          <>{data?.length === 0 ? <Empty name="Character!" /> : null}</>
         )}
         ListFooterComponent={() => (
           <>
-            {data?.results?.length !== 0 ? (
+            {data?.length !== 0 ? (
               <LoadMore isFetching={isFetching} isEnd={isEnd} />
             ) : null}
           </>

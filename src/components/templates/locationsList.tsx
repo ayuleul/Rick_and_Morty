@@ -9,7 +9,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {Empty, LoadMore} from '../molecules';
 
 type ParamList = {
-  Characters: {locationId: number} | undefined;
+  Character: {locationName: string} | undefined;
 };
 
 interface ICharacterListProp {
@@ -31,8 +31,8 @@ const LocationList: React.FC<ICharacterListProp> = ({
 }) => {
   const navigation = useNavigation<NativeStackNavigationProp<ParamList>>();
 
-  function handleNavigation(id: number) {
-    navigation.navigate('Characters', {locationId: id});
+  function handleNavigation(name: string) {
+    navigation.navigate('Character', {locationName: name});
   }
 
   function renderItem({item}: {item: IResult}) {

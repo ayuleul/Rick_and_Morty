@@ -6,7 +6,7 @@ import {Box, Text} from '../atoms';
 
 interface ICharacterItemProp {
   item: IResult;
-  handleNavigation: (id: number) => void;
+  handleNavigation: (name: string) => void;
 }
 
 const LocationCard: React.FC<ICharacterItemProp> = ({
@@ -15,7 +15,7 @@ const LocationCard: React.FC<ICharacterItemProp> = ({
 }) => {
   return (
     <Pressable
-      onPress={() => handleNavigation(item?.id)}
+      onPress={() => handleNavigation(item?.name)}
       width={windowWidth * 0.89}
       bg="$characterBackground"
       flexDirection="row"

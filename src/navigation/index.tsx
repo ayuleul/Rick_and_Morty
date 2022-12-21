@@ -4,9 +4,8 @@ import {ThemeProvider} from '@shopify/restyle';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useSelector} from 'react-redux';
 import {RootState} from '@app/redux/store';
-import {routes} from '@app/helpers';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function AppNavigation() {
   const {theme} = useSelector((state: RootState) => state.theme);
@@ -17,8 +16,8 @@ function AppNavigation() {
         screenOptions={{
           headerShown: false,
         }}>
-        <Stack.Screen name={routes.locations} component={Locations} />
-        <Stack.Screen name={routes.characters} component={Characters} />
+        <Stack.Screen name="Location" component={Locations} />
+        <Stack.Screen name="Character" component={Characters} />
       </Stack.Navigator>
     </ThemeProvider>
   );
