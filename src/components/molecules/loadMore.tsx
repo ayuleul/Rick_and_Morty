@@ -18,7 +18,11 @@ const LoadMore: React.FC<ILoadMoreLoading> = ({isFetching, isEnd = false}) => {
       justifyContent="center"
       marginVertical="xl">
       {isFetching && !isEnd ? (
-        <ActivityIndicator size="large" color={theme.colors.$primary} />
+        <ActivityIndicator
+          testID="activityIndicator"
+          size="large"
+          color={theme.colors.$primary}
+        />
       ) : null}
       {isEnd ? <Text>--- The End ---</Text> : null}
     </Box>

@@ -19,6 +19,7 @@ const CharacterCard: React.FC<ICharacterItemProp> = ({item}) => {
       borderTopRightRadius="sm"
       marginVertical="sm">
       <FastImage
+        testID="character_image"
         source={{uri: item?.image}}
         width="100%"
         height={100}

@@ -42,6 +42,7 @@ const LocationList: React.FC<ICharacterListProp> = ({
   return (
     <Box flex={1} alignItems="center">
       <FlatList
+        testID="location_list"
         data={data?.results}
         renderItem={renderItem}
         keyExtractor={(item: IResult) => item.id.toString()}

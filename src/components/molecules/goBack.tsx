@@ -8,7 +8,7 @@ const GoBack = () => {
     navigation.goBack();
   }
   return (
-    <Pressable onPress={handleGoBack}>
+    <Pressable testID="go_back" onPress={handleGoBack}>
       <MaterialIcons name="arrow-back" size={30} color="$primary" />
     </Pressable>
   );

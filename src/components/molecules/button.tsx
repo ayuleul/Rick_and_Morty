@@ -20,7 +20,6 @@ const Button: React.FC<IButton> = ({
   return (
     <Touchable
       onPress={handleOnPress}
-      // width={80}
       bg="$primary"
       borderRadius="xs"
       paddingVertical="sm"

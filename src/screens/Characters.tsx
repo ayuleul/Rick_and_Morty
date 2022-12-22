@@ -125,6 +125,7 @@ const Characters = ({route}: NavProps) => {
         justifyContent="space-between">
         <GoBack />
         <TextInput
+          placeholder="search"
           value={filterValue.name}
           onChangeText={handleSearchValueChange}
           bg="$characterBackground"

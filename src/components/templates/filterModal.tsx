@@ -53,6 +53,7 @@ const FilterModal: React.FC<IFilterModal> = ({
         alignItems="center"
         justifyContent="center">
         <Pressable
+          testID="foreground"
           position="absolute"
           bottom={0}
           top={0}

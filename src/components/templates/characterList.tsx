@@ -25,6 +25,7 @@ const CharacterList: React.FC<ICharacterListProp> = ({
   return (
     <Box flex={1} alignItems="center">
       <FlatList
+        testID="character_list"
         data={data}
         renderItem={CharacterItem}
         keyExtractor={(item: IResult) => item.id.toString()}
