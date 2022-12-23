@@ -1,7 +1,7 @@
 import React from 'react';
 import {fireEvent, screen} from '@testing-library/react-native';
 import Button from './button';
-import {renderWithReStyle} from '@app/utils/testUtils';
+import {renderWithReStyle} from '@app/jest/utils';
 
 const mockOnPress = jest.fn();
 

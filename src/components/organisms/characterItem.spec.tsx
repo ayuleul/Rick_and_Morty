@@ -1,4 +1,4 @@
-import {renderWithReStyle, sampleCharacter} from '@app/utils/testUtils';
+import {renderWithReStyle, sampleCharacter} from '@app/jest/utils';
 import {screen} from '@testing-library/react-native';
 import React from 'react';
 import CharacterCard from './characterItem';

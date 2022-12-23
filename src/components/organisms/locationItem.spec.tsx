@@ -1,4 +1,4 @@
-import {renderWithReStyle, sampleLocation} from '@app/utils/testUtils';
+import {renderWithReStyle, sampleLocation} from '@app/jest/utils';
 import {fireEvent, screen} from '@testing-library/react-native';
 import React from 'react';
 import {LocationItem} from '.';

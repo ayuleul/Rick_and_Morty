@@ -19,6 +19,13 @@ export function renderWithReStyle(ui: ReactElement) {
   render(<ThemeProvider theme={theme}>{ui}</ThemeProvider>);
 }
 
+export function renderWithNavAndReStyle(ui: ReactElement) {
+  render(
+    <NavigationContainer>
+      <ThemeProvider theme={theme}>{ui}</ThemeProvider>
+    </NavigationContainer>,
+  );
+}
 export function renderWithStoreAndReStyle(ui: ReactElement) {
   render(
     <Provider store={store}>

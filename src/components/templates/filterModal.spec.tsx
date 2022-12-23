@@ -1,4 +1,4 @@
-import {renderWithReStyle} from '@app/utils/testUtils';
+import {renderWithReStyle} from '@app/jest/utils';
 import {fireEvent, screen} from '@testing-library/react-native';
 import React from 'react';
 import FilterModal from './filterModal';

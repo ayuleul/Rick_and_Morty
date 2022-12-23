@@ -1,7 +1,7 @@
 import React from 'react';
 import {screen} from '@testing-library/react-native';
 import Empty from './empty';
-import {renderWithReStyle} from '@app/utils/testUtils';
+import {renderWithReStyle} from '@app/jest/utils';
 
 const renderEmpty = () => renderWithReStyle(<Empty name="sample" />);
 

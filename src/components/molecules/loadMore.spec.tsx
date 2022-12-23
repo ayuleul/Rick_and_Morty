@@ -1,6 +1,6 @@
 import React from 'react';
 import {screen} from '@testing-library/react-native';
-import {renderWithReStyle} from '@app/utils/testUtils';
+import {renderWithReStyle} from '@app/jest/utils';
 import LoadMore from './loadMore';
 
 describe('LoadMore comp should render correctly', () => {

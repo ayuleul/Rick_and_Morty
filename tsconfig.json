@@ -11,5 +11,5 @@
       "@app/*": ["src/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "src/jest"]
 }
