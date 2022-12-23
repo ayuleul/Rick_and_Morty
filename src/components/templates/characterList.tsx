@@ -14,6 +14,8 @@ interface ICharacterListProp {
   handleOnRefresh: () => void;
 }
 
+const keyExtractor = (item: IResult) => item.id.toString();
+
 const CharacterList: React.FC<ICharacterListProp> = ({
   data,
   onEndReached,
@@ -28,20 +30,12 @@ const CharacterList: React.FC<ICharacterListProp> = ({
         testID="character_list"
         data={data}
         renderItem={CharacterItem}
-        keyExtractor={(item: IResult) => item.id.toString()}
+        keyExtractor={keyExtractor}
         numColumns={2}
         showsVerticalScrollIndicator={false}
         onEndReached={onEndReached}
-        ListEmptyComponent={() => (
-          <>{data?.length === 0 ? <Empty name="Character!" /> : null}</>
-        )}
-        ListFooterComponent={() => (
-          <>
-            {data?.length !== 0 ? (
-              <LoadMore isFetching={isFetching} isEnd={isEnd} />
-            ) : null}
-          </>
-        )}
+        ListEmptyComponent={<Empty name="Character!" />}
+        ListFooterComponent={<LoadMore isFetching={isFetching} isEnd={isEnd} />}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={handleOnRefresh} />
         }

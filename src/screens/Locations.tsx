@@ -1,10 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {SafeAreaView} from '@app/components/atoms';
 import {LocationList} from '@app/components/templates';
 import {useGetLocationsQuery} from '@app/redux/service/locationApi';
 import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '@app/redux/store';
-import {useEffect} from 'react';
 import {clearLocationResultsData} from '@app/redux/features';
 
 const Locations = () => {
@@ -24,7 +23,6 @@ const Locations = () => {
 
   const handleOnRefresh = React.useCallback(() => {
     dispatch(clearLocationResultsData());
-    // setRefreshing(true);
     refetch();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
