@@ -139,9 +139,10 @@ const Characters = ({route}: NavProps) => {
         </Pressable>
       </Box>
       <CharacterList
-        data={character?.results.filter(
-          item => item?.location?.name === locationName,
-        )}
+        data={character?.results}
+        // data={character?.results.filter(
+        //   item => item?.location?.name === locationName,
+        // )}
         onEndReached={handlePageIncrease}
         isFetching={isLoading}
         isEnd={page === character?.info?.pages}
