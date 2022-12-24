@@ -5,9 +5,11 @@ import {useGetLocationsQuery} from '@app/redux/service/locationApi';
 import {useDispatch, useSelector} from 'react-redux';
 import {RootState} from '@app/redux/store';
 import {clearLocationResultsData} from '@app/redux/features';
+import withObservables from '@nozbe/with-observables';
+import {observeLocations} from '@app/data';
 
-const Locations = () => {
-  const [page, setPage] = useState(1);
+const Locations = ({locations}: any) => {
+  const [page, setPage] = useState(locations?.length / 20);
   const [refreshing, setRefreshing] = useState(false);
 
   const {refetch, isFetching} = useGetLocationsQuery(page);
@@ -53,4 +55,10 @@ const Locations = () => {
   );
 };
 
-export default Locations;
+// export default Locations;
+
+const enhanceWithLocations = withObservables([], () => ({
+  locations: observeLocations(),
+}));
+
+export default enhanceWithLocations(Locations);

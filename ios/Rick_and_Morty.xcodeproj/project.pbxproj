@@ -14,6 +14,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-Rick_and_Morty-Rick_and_MortyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Rick_and_Morty-Rick_and_MortyTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		CE7EE63929570E3900389B31 /* wmelon.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7EE63829570E3900389B31 /* wmelon.swift */; };
 		CE8E20AE2951033C00AF8E06 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE8E209E2951033C00AF8E06 /* Fontisto.ttf */; };
 		CE8E20AF2951033C00AF8E06 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE8E209F2951033C00AF8E06 /* Octicons.ttf */; };
 		CE8E20B02951033C00AF8E06 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CE8E20A02951033C00AF8E06 /* Feather.ttf */; };
@@ -59,6 +60,8 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-Rick_and_Morty.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Rick_and_Morty.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Rick_and_Morty/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Rick_and_Morty-Rick_and_MortyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rick_and_Morty-Rick_and_MortyTests.release.xcconfig"; path = "Target Support Files/Pods-Rick_and_Morty-Rick_and_MortyTests/Pods-Rick_and_Morty-Rick_and_MortyTests.release.xcconfig"; sourceTree = "<group>"; };
+		CE7EE63729570E3900389B31 /* Rick_and_Morty-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Rick_and_Morty-Bridging-Header.h"; sourceTree = "<group>"; };
+		CE7EE63829570E3900389B31 /* wmelon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wmelon.swift; sourceTree = "<group>"; };
 		CE8E209E2951033C00AF8E06 /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
 		CE8E209F2951033C00AF8E06 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
 		CE8E20A02951033C00AF8E06 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
@@ -148,6 +151,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				CE7EE63829570E3900389B31 /* wmelon.swift */,
 				CE8E209D2951033C00AF8E06 /* Fonts */,
 				13B07FAE1A68108700A75B9A /* Rick_and_Morty */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -155,6 +159,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				CE7EE63729570E3900389B31 /* Rick_and_Morty-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -264,7 +269,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1410;
 					};
 				};
 			};
@@ -487,6 +492,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				CE7EE63929570E3900389B31 /* wmelon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -505,6 +511,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-Rick_and_Morty-Rick_and_MortyTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -532,6 +539,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-Rick_and_Morty-Rick_and_MortyTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = Rick_and_MortyTests/Info.plist;
@@ -572,6 +580,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Rick_and_Morty;
+				SWIFT_OBJC_BRIDGING_HEADER = "Rick_and_Morty-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -597,6 +606,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Rick_and_Morty;
+				SWIFT_OBJC_BRIDGING_HEADER = "Rick_and_Morty-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
