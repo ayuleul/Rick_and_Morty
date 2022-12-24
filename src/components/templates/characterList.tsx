@@ -34,7 +34,7 @@ const CharacterList: React.FC<ICharacterListProp> = ({
         numColumns={2}
         showsVerticalScrollIndicator={false}
         onEndReached={onEndReached}
-        ListEmptyComponent={<Empty name="Character!" />}
+        ListEmptyComponent={<Empty isFetching={isFetching} name="Character!" />}
         ListFooterComponent={<LoadMore isFetching={isFetching} isEnd={isEnd} />}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={handleOnRefresh} />

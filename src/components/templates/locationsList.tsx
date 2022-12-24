@@ -49,7 +49,11 @@ const LocationList: React.FC<ICharacterListProp> = ({
         showsVerticalScrollIndicator={false}
         onEndReached={onEndReached}
         ListEmptyComponent={() => (
-          <>{data?.results?.length === 0 ? <Empty name="Location!" /> : null}</>
+          <>
+            {data?.results?.length === 0 ? (
+              <Empty isFetching={isFetching} name="Location!" />
+            ) : null}
+          </>
         )}
         ListFooterComponent={() => (
           <>
