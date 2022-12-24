@@ -4,11 +4,14 @@ import {ThemeProvider} from '@shopify/restyle';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useSelector} from 'react-redux';
 import {RootState} from '@app/redux/store';
+import {useSavedData} from '@app/hooks';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function AppNavigation() {
   const {theme} = useSelector((state: RootState) => state.theme);
+
+  useSavedData();
 
   return (
     <ThemeProvider theme={theme}>

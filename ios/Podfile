@@ -4,6 +4,15 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 platform :ios, '12.4'
 install! 'cocoapods', :deterministic_uuids => false
 
+# If you're using autolinking, this line might not be needed
+pod 'WatermelonDB', :path => '../node_modules/@nozbe/watermelondb'
+
+# NOTE: Do not remove, needed to keep WatermelonDB compiling:
+pod 'React-jsi', :path => '../node_modules/react-native/ReactCommon/jsi', :modular_headers => true
+
+# NOTE: This is required as of v0.23
+pod 'simdjson', path: '../node_modules/@nozbe/simdjson'
+
 target 'Rick_and_Morty' do
   config = use_native_modules!
 
