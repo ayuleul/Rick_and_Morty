@@ -19,7 +19,7 @@ const ButtonGroup: React.FC<IButtonGroup> = ({
 }) => {
   return (
     <Box mb="md">
-      <Text fontWeight="bold" mb="xs">
+      <Text color="$onSurface" fontWeight="bold" mb="xs">
         {title}
       </Text>
       <Box flexDirection="row">
@@ -33,7 +33,7 @@ const ButtonGroup: React.FC<IButtonGroup> = ({
               containerStyle={{
                 m: 'sm',
                 p: 'sm',
-                bg: '$white',
+                bg: 'white',
                 borderColor: '$primary',
                 borderWidth: selected === item ? 1 : 0,
               }}

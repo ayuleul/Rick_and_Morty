@@ -8,21 +8,21 @@ export type IconProps = React.ComponentProps<typeof Material>;
 type Props = Omit<IconProps, 'color'> & ColorProps<Theme>;
 
 export const MaterialIcons: React.FC<Props> = ({
-  color = '$foreground',
+  color = '$primary',
   ...rest
 }) => {
   const theme = useTheme<Theme>();
   const colorProp = useResponsiveProp(color);
-  const vColor = theme.colors[colorProp || '$foreground'];
+  const vColor = theme.colors[colorProp || '$primary'];
   return <Material {...rest} color={vColor} />;
 };
 
 export const OcticonsIcons: React.FC<Props> = ({
-  color = '$foreground',
+  color = '$primary',
   ...rest
 }) => {
   const theme = useTheme<Theme>();
   const colorProp = useResponsiveProp(color);
-  const vColor = theme.colors[colorProp || '$foreground'];
+  const vColor = theme.colors[colorProp || '$primary'];
   return <Octicons {...rest} color={vColor} />;
 };

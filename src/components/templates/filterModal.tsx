@@ -65,7 +65,7 @@ const FilterModal: React.FC<IFilterModal> = ({
           width={windowWidth * 0.8}
           m="lg"
           padding="xl"
-          bg="$white"
+          bg="white"
           borderRadius="sm">
           <ButtonGroup
             title="Gender"

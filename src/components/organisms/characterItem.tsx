@@ -13,7 +13,7 @@ const CharacterCard: React.FC<ICharacterItemProp> = ({item}) => {
   return (
     <Box
       width={windowWidth * 0.39}
-      bg="$characterBackground"
+      bg="$surface"
       marginHorizontal="md"
       borderTopLeftRadius="sm"
       borderTopRightRadius="sm"
@@ -34,15 +34,17 @@ const CharacterCard: React.FC<ICharacterItemProp> = ({item}) => {
           paddingVertical="xs"
           borderTopLeftRadius="sm"
           bg="$transparentBackground">
-          <Text>{getSpeciesIcon(item?.species)}</Text>
+          <Text color="$onSurface">{getSpeciesIcon(item?.species)}</Text>
         </Box>
       </FastImage>
       <Box marginHorizontal="sm" marginVertical="md">
-        <Text variant="title">{`${item?.name} (${item.gender})`}</Text>
-        <Text variant="subtitle" mt="sm">
+        <Text
+          color="$onSurface"
+          variant="title">{`${item?.name} (${item.gender})`}</Text>
+        <Text color="$onSurface" variant="subtitle" mt="sm">
           {item.status}
         </Text>
-        <Text variant="subtitle" mt="xs">
+        <Text color="$onSurface" variant="subtitle" mt="xs">
           First seen: {item.origin.name}
         </Text>
       </Box>

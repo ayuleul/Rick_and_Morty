@@ -117,7 +117,7 @@ const Characters = ({route}: NavProps) => {
   }, [filterValue?.name]);
 
   return (
-    <SafeAreaView flex={1}>
+    <SafeAreaView flex={1} bg="$background">
       <Box
         marginHorizontal="xl"
         marginVertical="sm"
@@ -128,7 +128,7 @@ const Characters = ({route}: NavProps) => {
           placeholder="search"
           value={filterValue.name}
           onChangeText={handleSearchValueChange}
-          bg="$characterBackground"
+          bg="$surface"
           flex={1}
           marginHorizontal="md"
           height={35}

@@ -7,6 +7,7 @@ import {RootState} from '@app/redux/store';
 import {clearLocationResultsData} from '@app/redux/features';
 import withObservables from '@nozbe/with-observables';
 import {observeLocations} from '@app/data';
+import {Header} from '@app/components/organisms';
 
 const Locations = ({locations}: any) => {
   const [page, setPage] = useState(locations?.length / 20);
@@ -42,7 +43,8 @@ const Locations = ({locations}: any) => {
   }, [isFetching]);
 
   return (
-    <SafeAreaView flex={1}>
+    <SafeAreaView flex={1} bg="$background">
+      <Header title="Locations" />
       <LocationList
         data={location}
         onEndReached={handlePageIncrease}
