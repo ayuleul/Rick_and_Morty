@@ -17,7 +17,7 @@ const LocationCard: React.FC<ICharacterItemProp> = ({
     <Pressable
       onPress={() => handleNavigation(item?.name)}
       width={windowWidth * 0.89}
-      bg="$characterBackground"
+      bg="$surface"
       flexDirection="row"
       justifyContent="space-between"
       alignItems="center"
@@ -27,9 +27,14 @@ const LocationCard: React.FC<ICharacterItemProp> = ({
       paddingVertical="lg"
       marginVertical="sm">
       <Box width={windowWidth * 0.75}>
-        <Text fontWeight="bold" mb="md">{`${item?.name} (${item?.type})`}</Text>
-        <Text mb="sm">Dimension: {item?.dimension}</Text>
-        <Text variant="title" fontWeight="400">
+        <Text
+          color="$onSurface"
+          fontWeight="bold"
+          mb="md">{`${item?.name} (${item?.type})`}</Text>
+        <Text color="$onSurface" mb="sm">
+          Dimension: {item?.dimension}
+        </Text>
+        <Text color="$onSurface" variant="title" fontWeight="400">
           There are {item?.residents?.length} Residents
         </Text>
       </Box>

@@ -5,15 +5,8 @@ const p = {
   white: 'white',
   black: 'black',
   red: 'red',
-  blue: '#05445E',
+  blue: 'blue',
   yellow: 'yellow',
-  paper00: '#ffffff',
-  paper10: '#f5f5f4',
-  paper20: '#e6e6e6',
-  paper100: '#aeaeae',
-  paper300: '#767577',
-  paper900: '#202020',
-  paperTransparent: 'rgba(52, 52, 52, 0.7)',
 };
 
 const theme = createTheme({
@@ -38,12 +31,12 @@ const theme = createTheme({
     blue: p.blue,
     yellow: p.yellow,
 
-    $primary: p.blue,
-    $background: p.white,
-    $foreground: p.white,
-    $characterBackground: p.paper20,
-    $transparentBackground: p.paperTransparent,
-    $white: p.white,
+    $primary: 'rgb(52, 61, 255)',
+    $background: 'rgb(255, 251, 255)',
+    $onBackground: 'rgb(27, 27, 31)',
+    $surface: 'rgb(224, 224, 255)',
+    $onSurface: 'rgb(27, 27, 31)',
+    $transparentBackground: 'rgba(52, 52, 52, 0.7)',
   },
   borderRadii: {
     xs: 4,
@@ -57,16 +50,33 @@ const theme = createTheme({
   },
   textVariants: {
     defaults: {
-      color: 'black',
       fontSize: 16,
     },
+    header1: {
+      fontSize: 24,
+      fontWeight: '600',
+    },
+    header2: {
+      fontSize: 22,
+      fontWeight: '600',
+    },
+    header3: {
+      fontSize: 20,
+      fontWeight: '600',
+    },
+    header4: {
+      fontSize: 18,
+      fontWeight: '600',
+    },
+    header5: {
+      fontSize: 16,
+      fontWeight: '600',
+    },
     title: {
-      color: 'black',
       fontSize: 14,
       fontWeight: '600',
     },
     subtitle: {
-      color: 'black',
       fontSize: 12,
     },
   },

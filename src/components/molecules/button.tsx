@@ -26,7 +26,7 @@ const Button: React.FC<IButton> = ({
       justifyContent="center"
       alignItems="center"
       {...containerStyle}>
-      <Text color="$white" {...titleStyle}>
+      <Text color="$onBackground" {...titleStyle}>
         {title}
       </Text>
     </Touchable>

@@ -12,7 +12,7 @@ const Empty: React.FC<IEmpty> = ({name, isFetching}) => {
   }
   return (
     <Box flex={1} mt="hg" justifyContent="center" alignItems="center">
-      <Text>I can't find {name}</Text>
+      <Text color="$onBackground">I can't find {name}</Text>
     </Box>
   );
 };

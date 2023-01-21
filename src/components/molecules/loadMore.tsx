@@ -24,7 +24,7 @@ const LoadMore: React.FC<ILoadMoreLoading> = ({isFetching, isEnd = false}) => {
           color={theme.colors.$primary}
         />
       ) : null}
-      {isEnd ? <Text>--- The End ---</Text> : null}
+      {isEnd ? <Text color="$onBackground">--- The End ---</Text> : null}
     </Box>
   );
 };

@@ -9,7 +9,7 @@ import {useSavedData} from '@app/hooks';
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function AppNavigation() {
-  const {theme} = useSelector((state: RootState) => state.theme);
+  const {theme} = useSelector((state: RootState) => state.theme.selected);
 
   useSavedData();
 
