@@ -19,7 +19,11 @@ const locationSlice = createSlice({
       locationApi.endpoints.getLocations.matchFulfilled,
       (state, {payload}) => {
         state.info = payload.info;
-        state.results = [...state.results, ...payload.results];
+        state.results = [...state.results, ...payload.results].filter(
+          (item, index, self) => {
+            return index === self.findIndex(t => t.id === item.id);
+          },
+        );
         saveLocations(payload.results);
       },
     );
