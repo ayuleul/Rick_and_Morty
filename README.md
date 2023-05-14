@@ -2,7 +2,7 @@
 
 This project is a Rick and Morty Wiki. Made using [React Native](https://reactnative.dev/) to serve an infinite scrolling styled list of all the characters in the famous series [Rick and Morty](https://en.wikipedia.org/wiki/Rick_and_Morty). Uses the [Rick and Morty API](https://rickandmortyapi.com/documentation/#rest) to display the details of each character including- name, gender, origin, location, amount of residents, chapters the character is featured in, etc.
 
-![github stars](https://img.shields.io/github/stars/dustspeck/rick-n-morty-wiki-app) ![github stars](https://img.shields.io/badge/app-react%20native-blue)
+![github stars](https://img.shields.io/github/stars/ayuleul/Rick_and_Morty) ![github stars](https://img.shields.io/badge/app-react%20native-blue)
 
 ## Screenshots
 
